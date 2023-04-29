@@ -1,0 +1,254 @@
+/* IMPORT SECTION */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+
+
+
+/* DEFAULT STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+:root {
+  /* NEUTRALS */
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --lavender: hsl(241, 100%, 89%);
+  --grey-blue: hsl(224, 30%, 27%);
+
+  /* ACCENTS */
+  --red: hsl(0, 100%, 67%);
+  --orange: hsl(39, 100%, 56%);
+  --teal: hsl(166, 100%, 37%);
+  --cobalt: hsl(234, 85%, 45%);
+
+  /* GRADIENTS */
+  --slate: hsl(252, 100%, 67%);
+  --royal: hsl(241, 81%, 54%);
+
+  --violet: hsla(256, 72%, 46%, 1);
+  --persian: hsla(241, 72%, 46%, 0);
+
+  --font: "Hanken Grotesk", serif;
+}
+
+body {
+  position: relative;
+  font-family: var(--font);
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.results-box {
+  width: 100%;
+  height: 44vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--slate), var(--royal));
+  margin: 0;
+  border-radius: 0 0 40px 40px;
+
+  @media screen and (min-width: 768px) {
+    width: 50%;
+  }
+
+}
+
+.results-score {
+  background: linear-gradient(180deg, var(--violet) 10%, var(--persian));
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.out-of, .results-title, .results-percentage {
+  color: var(--lavender);
+}
+
+.results-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.score, .results-classification {
+  color: var(--pale-blue);
+}
+
+.score {
+  font-size: 54px;
+  font-weight: 800;
+}
+
+.results-classification {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.results-percentage {
+  padding: 0 120px;
+  text-align: center;
+}
+
+
+.summary-box {
+  width: 100%;
+  padding: 25px;
+
+  @media screen and (min-width: 768px) {
+    width: 50%;
+  }
+}
+
+.summary-categories {
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-category {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  opacity: 1;
+  height: 60px;
+  border-radius: 15px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: 40%;
+    border-radius: 15px;
+    z-index: -1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: 40%;
+    border-radius: 15px;
+    z-index: -1;
+  }
+}
+
+.summary-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--grey-blue);
+  margin-bottom: 20px;
+  pointer-events: none;
+}
+
+.category-title {
+  flex: 1;
+  align-self: center;
+  justify-self: flex-start;
+  display: flex;
+  align-items: center;
+}
+
+.category-title span {
+  font-weight: 700;
+  margin: 0 10px;
+}
+
+.summary-category p {
+  flex: 1;
+  text-align: right;
+  align-self: center;
+  justify-self: flex-end;
+  font-weight: 700;
+  color: hsla(224, 30%, 27%, 0.5);
+}
+
+
+.reaction {
+  color: var(--red);
+}
+
+.memory {
+  color: var(--orange);
+}
+
+.verbal {
+  color: var(--teal);
+}
+
+.visual {
+  color: var(--cobalt);
+}
+
+.category-score {
+  font-weight: 800 !important;
+  color: var(--grey-blue);
+}
+
+.summary-button {
+  background-color: var(--grey-blue);
+  width: 100%;
+  height: 60px;
+  border-radius: 30px;
+  color: var(--pale-blue);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.reaction-category {
+  background-color:rgb(255, 245, 245);
+  position: relative;
+  &::before, &::after{
+    background-color: hsla(0, 100%, 67%, 0.1);
+  }
+}
+
+.memory-category {
+  background-color: rgb(255, 251, 243);
+  &::before, &::after {
+    background-color: hsla(39, 100%, 56%, 0.15);
+  }
+}
+
+.verbal-category {
+  background-color: rgb(242, 251, 249);
+  &::before, &::after {
+    background-color: hsla(166, 100%, 37%, 0.15);
+  }
+}
+
+.visual-category {
+  background-color: rgb(243, 244, 252);
+  &::before, &::after {
+    background-color: hsla(234, 85%, 45%, 0.1);
+  }
+}
