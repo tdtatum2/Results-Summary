@@ -52,9 +52,15 @@ function App() {
               <p><span className="category-score">{resultsData[3].score}</span> / 100</p>
             </div>
             
-            <button className="summary-button">Continue</button>
+           
           </div>
+          <button className="summary-button">Continue</button>
         </div>
+      </div>
+
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a> 
+        Coded by <a href="https://fintatum.com" target="_blank" rel="noreferrer">Fin</a>
       </div>
     </div>
       
