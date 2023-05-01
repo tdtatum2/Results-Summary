@@ -312,7 +312,6 @@ body {
 
 .reaction-category {
   background-color:rgb(255, 245, 245);
-  position: relative;
   &::before, &::after{
     background-color: hsla(0, 100%, 67%, 0.15);
   }

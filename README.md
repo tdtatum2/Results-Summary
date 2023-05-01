@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# Frontend Mentor - Results summary component solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Results summary component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/results-summary-component-CE_K6s0maV).
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![](./src/assets//images/desktop.png)
+![](./src/assets/images/mobile.png)
 
-### `npm test`
+### Links
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Solution URL: [Add solution URL here](https://github.com/tdtatum2/Results-Summary)
+- Live Site URL: [Add live site URL here](https://tdtatum2.github.io/Results-Summary)
 
-### `npm run build`
+## My process
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### What I learned
 
-### `npm run eject`
+This challenge really pushed my skills as a developer, which was a lot of fun. It reminded me that even though a proejct may look simple, the specifics will always end up taking more time than expected. Below are a few cool tricks and issues I ran into:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```scss
+.summary-category {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  opacity: 1;
+  height: 60px;
+  border-radius: 15px;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: 40%;
+    border-radius: 15px;
+    z-index: -1;
+  }
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  &::before {
+    top: 0;
+  }
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  &::after {
+    bottom: 0;
+  }
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 15px;
+    img {
+      width: 32px;
+    }
+  }
+}
+```
 
-## Learn More
+1. The power of SCSS. Being able to nest child elements inside of the parent element (and include media queries) is so useful and makes the styling code look much cleaner. It also helps to review code when issues come up because you know exactly where elements will differ by screen size.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```scss
+.category-title {
+  flex: 1;
+  align-self: center;
+  justify-self: flex-start;
+  display: flex;
+  align-items: center;
+}
+.summary-category p {
+  flex: 1;
+  text-align: right;
+  align-self: center;
+  justify-self: flex-end;
+  font-weight: 700;
+  color: hsla(224, 30%, 27%, 0.5);
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. The inclusion of "flex: 1;" to utilize align-self and justify-self in child elements.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```scss
+.reaction-category {
+  background-color:rgb(255, 245, 245);
+  &::before, &::after{
+    background-color: hsla(0, 100%, 67%, 0.15);
+  }
+}
+```
 
-### Analyzing the Bundle Size
+3. The implementation of the darker corners on the background where the category scores appear took me a lot of time. Through that hardship, I also learned about converting hsla values to rgb values based on what colour the background they're on top of is!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Continued development
 
-### Making a Progressive Web App
+- I want to continue to sharpen my skills in creating responsive designs.
+- I want to learn more flexbox skills.
+- I want to experiment with using miniscule details to add depth and meaning to designs in my own projects, like the tiny darkened corners of the summary categories.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Useful resources
 
-### Advanced Configuration
+- [My Custom CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/) - A useful CSS Reset template by Josh W Comeau recommended to me by Kamlesh Rajesh Yadav in a comment on my first ever Frontend Mentor post!
+- [Alpha Composing — Stack Overflow](https://stackoverflow.com/questions/2049230/convert-rgba-color-to-rgb) - Andras Zoltan has a beautiful response that perfectly explains tha algorithm used to convert from RGBA to RGB based on background colour. This came in handy after converting from HSLA to RGBA.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Website - [Fin](https://www.fintatum.com)
+- Frontend Mentor - [@tdtatum2](https://www.frontendmentor.io/profile/tdtatum2)
